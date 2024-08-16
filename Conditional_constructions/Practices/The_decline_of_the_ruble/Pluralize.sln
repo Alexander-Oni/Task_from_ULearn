@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pluralize", "Pluralize.csproj", "{AEA74756-4A37-48F3-BE0F-0A067D0C997A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEA74756-4A37-48F3-BE0F-0A067D0C997A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEA74756-4A37-48F3-BE0F-0A067D0C997A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEA74756-4A37-48F3-BE0F-0A067D0C997A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEA74756-4A37-48F3-BE0F-0A067D0C997A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD4EF2C1-09F6-4471-9A8C-DC6341E7E122}
+	EndGlobalSection
+EndGlobal
