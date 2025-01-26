@@ -12,7 +12,6 @@ namespace RefactorMe
         public static void Initialization(IGraphics newGraphics)
         {
             graphics = newGraphics;
-            //grafika.SmoothingMode = SmoothingMode.None;
             graphics.Clear(Colors.Black);
         }
 
@@ -24,7 +23,7 @@ namespace RefactorMe
 
         public static void makeIt(Pen pen, double length, double angle)
         {
-            //Делает шаг длиной dlina в направлении ugol и рисует пройденную траекторию
+            //Делает шаг длиной length в направлении angle и рисует пройденную траекторию
             var x1 = (float)(X + length * Math.Cos(angle));
             var y1 = (float)(Y + length * Math.Sin(angle));
             graphics.DrawLine(pen, X, Y, x1, y1);
@@ -41,16 +40,16 @@ namespace RefactorMe
     
     public class ImpossibleSquare
     {
-        public static void Draw(int shirina, int visota, double ugolPovorota, IGraphics grafika)
+        public static void Draw(int width, int height, double rotationAngle, IGraphics graphics)
         {
             // ugolPovorota пока не используется, но будет использоваться в будущем
-            Draftsman.Initialization(grafika);
+            Draftsman.Initialization(graphics);
 
-            var sz = Math.Min(shirina, visota);
+            var sz = Math.Min(width, height);
 
             var diagonal_length = Math.Sqrt(2) * (sz * 0.375f + sz * 0.04f) / 2;
-            var x0 = (float)(diagonal_length * Math.Cos(Math.PI / 4 + Math.PI)) + shirina / 2f;
-            var y0 = (float)(diagonal_length * Math.Sin(Math.PI / 4 + Math.PI)) + visota / 2f;
+            var x0 = (float)(diagonal_length * Math.Cos(Math.PI / 4 + Math.PI)) + width / 2f;
+            var y0 = (float)(diagonal_length * Math.Sin(Math.PI / 4 + Math.PI)) + height / 2f;
 
             Draftsman.SetPosition(x0, y0);
             //Рисуем 1-ую сторону
