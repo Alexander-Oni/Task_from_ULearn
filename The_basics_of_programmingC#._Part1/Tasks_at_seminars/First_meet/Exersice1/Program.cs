@@ -25,9 +25,7 @@ namespace Exersice1
             firstVar = secondVar;
             secondVar = tempVar;
 
-            string result = "Now first variable is " + firstVar + " and second variable is " + secondVar;
-
-            return result;
+            return "Now first variable is " + firstVar + " and second variable is " + secondVar; 
         }
     }
 
