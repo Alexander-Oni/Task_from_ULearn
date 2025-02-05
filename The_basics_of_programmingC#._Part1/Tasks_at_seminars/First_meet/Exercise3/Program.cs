@@ -7,12 +7,15 @@ namespace Exercise3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(AngleBetweenHoursAndMinutes(5));
-        }
+            for (int i = 0; i < 25; i++) 
+                Console.WriteLine(AngleBetweenHoursAndMinutes(i));
+            }
 
         static int AngleBetweenHoursAndMinutes(int hours)
         {
-            return hours % 12 * 30;
+            int hAng = 30 * (hours % 12); // сбрасываем до 12 часовошо формата
+
+            return hAng > 180 ? 360 - hAng : hAng; // проверка стороны часов
         }
     }
 }
