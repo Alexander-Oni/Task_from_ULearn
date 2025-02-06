@@ -21,16 +21,5 @@ namespace Exercise5
         {
             return (secondYear - firstYear) / 4 + 1;
         }
-
-        static int LeapYearCountingWithFor(int firstYear, int secondYear)
-        {
-            int count = 0;
-            for (int i = firstYear; i <= secondYear; i++)
-            {
-                if (i % 4 == 0)
-                    count++;
-            }
-            return count;
-        }
     }
 }
