@@ -43,8 +43,7 @@
 
         static void PrintCoordinates(int[] coordinates)
         {
-            for (int i = 0; i < coordinates.Length; i++) 
-                Console.Write(coordinates[i] + " ");
+            Console.WriteLine("X: " + coordinates[0] + " Y: " + coordinates[1]);
         }
     }
 }
