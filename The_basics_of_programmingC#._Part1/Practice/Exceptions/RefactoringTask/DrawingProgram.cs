@@ -9,7 +9,7 @@ namespace RefactorMe
         static float X, Y;
         static IGraphics graphics;
 
-        public static void Initialization(IGraphics newGraphics)
+        public static void InitializeGraphics(IGraphics newGraphics)
         {
             graphics = newGraphics;
             graphics.Clear(Colors.Black);
@@ -21,7 +21,7 @@ namespace RefactorMe
             Y = y0;
         }
 
-        public static void makeIt(Pen pen, double length, double angle)
+        public static void DoStep(Pen pen, double length, double angle)
         {
             //Делает шаг длиной length в направлении angle и рисует пройденную траекторию
             var x1 = (float)(X + length * Math.Cos(angle));
@@ -31,10 +31,10 @@ namespace RefactorMe
             Y = y1;
         }
 
-        public static void Change(double lenght, double angle)
+        public static void ChangeAngle(double length, double angle)
         {
-            X = (float)(X + lenght * Math.Cos(angle)); 
-            Y = (float)(Y + lenght * Math.Sin(angle));
+            X = (float)(X + length * Math.Cos(angle)); 
+            Y = (float)(Y + length * Math.Sin(angle));
         }
     }
     
@@ -43,7 +43,7 @@ namespace RefactorMe
         public static void Draw(int width, int height, double rotationAngle, IGraphics graphics)
         {
             // ugolPovorota пока не используется, но будет использоваться в будущем
-            Draftsman.Initialization(graphics);
+            Draftsman.InitializeGraphics(graphics);
 
             var sz = Math.Min(width, height);
 
@@ -53,40 +53,40 @@ namespace RefactorMe
 
             Draftsman.SetPosition(x0, y0);
             //Рисуем 1-ую сторону
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.375f, 0);
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), Math.PI / 4);
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI);
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, Math.PI / 2);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), Math.PI / 4);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, Math.PI / 2);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, 0);
 
-            Draftsman.Change(sz * 0.04f, -Math.PI);
-            Draftsman.Change(sz * 0.04f * Math.Sqrt(2), 3 * Math.PI / 4);
+            Draftsman.ChangeAngle(sz * 0.04f, -Math.PI);
+            Draftsman.ChangeAngle(sz * 0.04f * Math.Sqrt(2), 3 * Math.PI / 4);
 
             //Рисуем 2-ую сторону
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.375f, -Math.PI / 2);
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), -Math.PI / 2 + Math.PI / 4);
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.375f, -Math.PI / 2 + Math.PI);
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, -Math.PI / 2 + Math.PI / 2);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, -Math.PI / 2);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), -Math.PI / 2 + Math.PI / 4);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, -Math.PI / 2 + Math.PI);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, -Math.PI / 2 + Math.PI / 2);
 
-            Draftsman.Change(sz * 0.04f, -Math.PI / 2 - Math.PI);
-            Draftsman.Change(sz * 0.04f * Math.Sqrt(2), -Math.PI / 2 + 3 * Math.PI / 4);
+            Draftsman.ChangeAngle(sz * 0.04f, -Math.PI / 2 - Math.PI);
+            Draftsman.ChangeAngle(sz * 0.04f * Math.Sqrt(2), -Math.PI / 2 + 3 * Math.PI / 4);
 
             //Рисуем 3-ю сторону
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI);
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), Math.PI + Math.PI / 4);
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI + Math.PI);
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, Math.PI + Math.PI / 2);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), Math.PI + Math.PI / 4);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI + Math.PI);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, Math.PI + Math.PI / 2);
 
-            Draftsman.Change(sz * 0.04f, Math.PI - Math.PI);
-            Draftsman.Change(sz * 0.04f * Math.Sqrt(2), Math.PI + 3 * Math.PI / 4);
+            Draftsman.ChangeAngle(sz * 0.04f, Math.PI - Math.PI);
+            Draftsman.ChangeAngle(sz * 0.04f * Math.Sqrt(2), Math.PI + 3 * Math.PI / 4);
 
             //Рисуем 4-ую сторону
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI / 2);
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), Math.PI / 2 + Math.PI / 4);
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI / 2 + Math.PI);
-            Draftsman.makeIt(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, Math.PI / 2 + Math.PI / 2);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI / 2);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), Math.PI / 2 + Math.PI / 4);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI / 2 + Math.PI);
+            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, Math.PI / 2 + Math.PI / 2);
 
-            Draftsman.Change(sz * 0.04f, Math.PI / 2 - Math.PI);
-            Draftsman.Change(sz * 0.04f * Math.Sqrt(2), Math.PI / 2 + 3 * Math.PI / 4);
+            Draftsman.ChangeAngle(sz * 0.04f, Math.PI / 2 - Math.PI);
+            Draftsman.ChangeAngle(sz * 0.04f * Math.Sqrt(2), Math.PI / 2 + 3 * Math.PI / 4);
         }
     }
 }
