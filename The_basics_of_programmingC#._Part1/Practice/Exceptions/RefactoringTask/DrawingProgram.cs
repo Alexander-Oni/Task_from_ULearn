@@ -12,7 +12,7 @@ namespace RefactorMe
         public static void InitializeGraphics(IGraphics newGraphics)
         {
             background = newGraphics;
-            background.Clear(Colors.Blue);
+            background.Clear(Colors.Black);
         }
 
         public static void SetPosition(float x0, float y0)
