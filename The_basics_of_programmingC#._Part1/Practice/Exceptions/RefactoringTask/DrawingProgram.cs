@@ -7,12 +7,12 @@ namespace RefactorMe
     class Draftsman
     {
         static float X, Y;
-        static IGraphics graphics;
+        static IGraphics background;
 
         public static void InitializeGraphics(IGraphics newGraphics)
         {
-            graphics = newGraphics;
-            graphics.Clear(Colors.Black);
+            background = newGraphics;
+            background.Clear(Colors.Blue);
         }
 
         public static void SetPosition(float x0, float y0)
@@ -26,7 +26,7 @@ namespace RefactorMe
             //Делает шаг длиной length в направлении angle и рисует пройденную траекторию
             var x1 = (float)(X + length * Math.Cos(angle));
             var y1 = (float)(Y + length * Math.Sin(angle));
-            graphics.DrawLine(pen, X, Y, x1, y1);
+            background.DrawLine(pen, X, Y, x1, y1);
             X = x1;
             Y = y1;
         }
@@ -53,37 +53,37 @@ namespace RefactorMe
 
             Draftsman.SetPosition(x0, y0);
             //Рисуем 1-ую сторону
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), Math.PI / 4);
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI);
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, Math.PI / 2);
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, 0);
+            Draftsman.DoStep(new Pen(Brushes.Violet), sz * 0.375f, 0);
+            Draftsman.DoStep(new Pen(Brushes.Violet), sz * 0.04f * Math.Sqrt(2), Math.PI / 4);
+            Draftsman.DoStep(new Pen(Brushes.Violet), sz * 0.375f, Math.PI);
+            Draftsman.DoStep(new Pen(Brushes.Violet), sz * 0.375f - sz * 0.04f, Math.PI / 2);
 
             Draftsman.ChangeAngle(sz * 0.04f, -Math.PI);
             Draftsman.ChangeAngle(sz * 0.04f * Math.Sqrt(2), 3 * Math.PI / 4);
 
             //Рисуем 2-ую сторону
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, -Math.PI / 2);
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), -Math.PI / 2 + Math.PI / 4);
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, -Math.PI / 2 + Math.PI);
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, -Math.PI / 2 + Math.PI / 2);
+            Draftsman.DoStep(new Pen(Brushes.White), sz * 0.375f, -Math.PI / 2);
+            Draftsman.DoStep(new Pen(Brushes.White), sz * 0.04f * Math.Sqrt(2), -Math.PI / 2 + Math.PI / 4);
+            Draftsman.DoStep(new Pen(Brushes.White), sz * 0.375f, -Math.PI / 2 + Math.PI);
+            Draftsman.DoStep(new Pen(Brushes.White), sz * 0.375f - sz * 0.04f, -Math.PI / 2 + Math.PI / 2);
 
             Draftsman.ChangeAngle(sz * 0.04f, -Math.PI / 2 - Math.PI);
             Draftsman.ChangeAngle(sz * 0.04f * Math.Sqrt(2), -Math.PI / 2 + 3 * Math.PI / 4);
 
             //Рисуем 3-ю сторону
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI);
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), Math.PI + Math.PI / 4);
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI + Math.PI);
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, Math.PI + Math.PI / 2);
+            Draftsman.DoStep(new Pen(Brushes.Red), sz * 0.375f, Math.PI);
+            Draftsman.DoStep(new Pen(Brushes.Red), sz * 0.04f * Math.Sqrt(2), Math.PI + Math.PI / 4);
+            Draftsman.DoStep(new Pen(Brushes.Red), sz * 0.375f, Math.PI + Math.PI);
+            Draftsman.DoStep(new Pen(Brushes.Red), sz * 0.375f - sz * 0.04f, Math.PI + Math.PI / 2);
 
             Draftsman.ChangeAngle(sz * 0.04f, Math.PI - Math.PI);
             Draftsman.ChangeAngle(sz * 0.04f * Math.Sqrt(2), Math.PI + 3 * Math.PI / 4);
 
             //Рисуем 4-ую сторону
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI / 2);
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), Math.PI / 2 + Math.PI / 4);
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI / 2 + Math.PI);
-            Draftsman.DoStep(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, Math.PI / 2 + Math.PI / 2);
+            Draftsman.DoStep(new Pen(Brushes.Green), sz * 0.375f, Math.PI / 2);
+            Draftsman.DoStep(new Pen(Brushes.Green), sz * 0.04f * Math.Sqrt(2), Math.PI / 2 + Math.PI / 4);
+            Draftsman.DoStep(new Pen(Brushes.Green), sz * 0.375f, Math.PI / 2 + Math.PI);
+            Draftsman.DoStep(new Pen(Brushes.Green), sz * 0.375f - sz * 0.04f, Math.PI / 2 + Math.PI / 2);
 
             Draftsman.ChangeAngle(sz * 0.04f, Math.PI / 2 - Math.PI);
             Draftsman.ChangeAngle(sz * 0.04f * Math.Sqrt(2), Math.PI / 2 + 3 * Math.PI / 4);
